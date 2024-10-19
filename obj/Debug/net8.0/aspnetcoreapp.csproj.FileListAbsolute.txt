@@ -28,3 +28,4 @@
 /Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/obj/Debug/net8.0/aspnetcoreapp.pdb
 /Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/obj/Debug/net8.0/aspnetcoreapp.genruntimeconfig.cache
 /Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/obj/Debug/net8.0/ref/aspnetcoreapp.dll
+/Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/obj/Debug/net8.0/aspnetcoreapp.sourcelink.json
