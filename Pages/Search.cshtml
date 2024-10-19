@@ -1,10 +1,66 @@
 @page
 @model SearchModel
 @{
-    ViewData["Title"] = "Search";
+    ViewData["Title"] = "Search Results";
 }
 
 <div class="text-center">
     <h1 class="display-4">Search</h1>
-    <p>Search for something here.</p>
+
+    <form method="get">
+        <div class="form-group">
+            <label for="CompanyName">廠商名稱</label>
+            <input type="text" class="form-control" id="CompanyName" name="CompanyName" value="@Model.CompanyName" placeholder="輸入廠商名稱">
+        </div>
+        <div class="form-group">
+            <label for="ManagerName">負責人姓名</label>
+            <input type="text" class="form-control" id="ManagerName" name="ManagerName" value="@Model.ManagerName" placeholder="輸入負責人姓名">
+        </div>
+        <div class="form-group">
+            <label for="BusinessScope">執業範圍</label>
+            <input type="text" class="form-control" id="BusinessScope" name="BusinessScope" value="@Model.BusinessScope" placeholder="輸入執業範圍">
+        </div>
+        <div class="form-group">
+            <label for="Address">營業地址</label>
+            <input type="text" class="form-control" id="Address" name="Address" value="@Model.Address" placeholder="輸入營業地址">
+        </div>
+        <button type="submit" class="btn btn-primary">搜尋</button>
+    </form>
+
+    @if (Model.IriData != null && Model.IriData.Count > 0)
+    {
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>申請項目</th>
+                    <th>廠商名稱</th>
+                    <th>登記證書字號</th>
+                    <th>執業範圍</th>
+                    <th>統一編號</th>
+                    <th>有效期限</th>
+                    <th>負責人姓名</th>
+                    <th>營業地址</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.IriData)
+                {
+                    <tr>
+                        <td>@item.ApplicationType</td>
+                        <td>@item.CompanyName</td>
+                        <td>@item.RegistrationNumber</td>
+                        <td>@item.BusinessScope</td>
+                        <td>@item.UnifiedNumber</td>
+                        <td>@item.ExpiryDate</td>
+                        <td>@item.ManagerName</td>
+                        <td>@item.Address</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No data found.</p>
+    }
 </div>

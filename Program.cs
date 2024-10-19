@@ -1,5 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// 新增 HttpClient 服務
+builder.Services.AddHttpClient();
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 
