@@ -19,36 +19,41 @@ namespace aspnetcoreapp.Pages
             _httpClient = httpClientFactory.CreateClient();
         }
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public string CompanyName { get; set; } // 廠商名稱
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public string ManagerName { get; set; } // 負責人姓名
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public string BusinessScope { get; set; } // 執業範圍
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty]
         public string Address { get; set; } // 營業地址
 
         public List<IriDataItem> IriData { get; set; }
 
-        public async Task OnGet()
+        public void OnGet()
+        {
+
+        }
+        public async Task OnPostAsync()
         {
             var requestUri = "https://cloudbm.nlma.gov.tw/EIX/RSAPI/V1/opendata/iri?start=1";
             if (!string.IsNullOrEmpty(CompanyName))
             {
                 requestUri += $"&compname={CompanyName}";
             }
+
             // 發送 API 請求
             var response = await _httpClient.GetAsync(requestUri);
 
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                _logger.LogInformation("JSON 回應: {JsonResponse}", jsonResponse); // 用於調試
+                _logger.LogInformation("JSON 回應: {JsonResponse}", jsonResponse);
 
-                // 解析 JSON 結果
+                // 設置反序列化選項
                 var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
@@ -60,7 +65,7 @@ namespace aspnetcoreapp.Pages
 
                     if (result != null && result.IriData != null)
                     {
-                        // 根據每個欄位進行篩選
+                        // 根據輸入的條件篩選資料
                         IriData = result.IriData
                             .Where(item =>
                                 (string.IsNullOrEmpty(ManagerName) || item.ManagerName.Contains(ManagerName)) &&
@@ -85,40 +90,41 @@ namespace aspnetcoreapp.Pages
                 IriData = new List<IriDataItem>();
             }
         }
-    }
 
-    // 定義用來映射 API 資料的類別
-    public class ApiResponse
-    {
-        [JsonPropertyName("IriData")]
-        [JsonConverter(typeof(SingleOrArrayConverter<IriDataItem>))]
-        public List<IriDataItem> IriData { get; set; }
-    }
 
-    public class IriDataItem
-    {
-        [JsonPropertyName("申請項目")]
-        public string ApplicationType { get; set; }
+        // 定義用來映射 API 資料的類別
+        public class ApiResponse
+        {
+            [JsonPropertyName("IriData")]
+            [JsonConverter(typeof(SingleOrArrayConverter<IriDataItem>))]
+            public List<IriDataItem> IriData { get; set; }
+        }
 
-        [JsonPropertyName("廠商名稱")]
-        public string CompanyName { get; set; }
+        public class IriDataItem
+        {
+            [JsonPropertyName("申請項目")]
+            public string ApplicationType { get; set; }
 
-        [JsonPropertyName("登記證書字號")]
-        public string RegistrationNumber { get; set; }
+            [JsonPropertyName("廠商名稱")]
+            public string CompanyName { get; set; }
 
-        [JsonPropertyName("執業範圍")]
-        public string BusinessScope { get; set; }
+            [JsonPropertyName("登記證書字號")]
+            public string RegistrationNumber { get; set; }
 
-        [JsonPropertyName("統一編號")]
-        public string UnifiedNumber { get; set; }
+            [JsonPropertyName("執業範圍")]
+            public string BusinessScope { get; set; }
 
-        [JsonPropertyName("有效期限")]
-        public string ExpiryDate { get; set; }
+            [JsonPropertyName("統一編號")]
+            public string UnifiedNumber { get; set; }
 
-        [JsonPropertyName("負責人姓名")]
-        public string ManagerName { get; set; }
+            [JsonPropertyName("有效期限")]
+            public string ExpiryDate { get; set; }
 
-        [JsonPropertyName("營業地址")]
-        public string Address { get; set; }
+            [JsonPropertyName("負責人姓名")]
+            public string ManagerName { get; set; }
+
+            [JsonPropertyName("營業地址")]
+            public string Address { get; set; }
+        }
     }
 }
