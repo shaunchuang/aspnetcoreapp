@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/shaunchuang/.nuget/packages/": {}
+    "/home/ubuntu/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/aspnetcoreapp.csproj",
+      "projectUniqueName": "/home/ubuntu/aspnetcoreapp/aspnetcoreapp.csproj",
       "projectName": "aspnetcoreapp",
-      "projectPath": "/Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/aspnetcoreapp.csproj",
-      "packagesPath": "/Users/shaunchuang/.nuget/packages/",
-      "outputPath": "/Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/obj/",
+      "projectPath": "/home/ubuntu/aspnetcoreapp/aspnetcoreapp.csproj",
+      "packagesPath": "/home/ubuntu/.nuget/packages/",
+      "outputPath": "/home/ubuntu/aspnetcoreapp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/shaunchuang/.nuget/NuGet/NuGet.Config"
+        "/home/ubuntu/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -38,11 +38,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -67,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

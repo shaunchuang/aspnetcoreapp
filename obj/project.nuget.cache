@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eJh46nNy86k=",
+  "dgSpecHash": "V5ZtV3AJlnOEJWcwAQauUqaDDhhSzi10jha4PRbs5GbwHN6UPo2e5b73Vr2bTLc6itbJgzPuJKQezVCBHi/fZw==",
   "success": true,
-  "projectFilePath": "/Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/aspnetcoreapp.csproj",
+  "projectFilePath": "/home/ubuntu/aspnetcoreapp/aspnetcoreapp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
