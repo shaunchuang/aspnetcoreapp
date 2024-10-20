@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "eJh46nNy86k=",
+  "dgSpecHash": "At5xfReOk8A=",
   "success": true,
   "projectFilePath": "/Users/shaunchuang/Code_Learning/Csharp_practice/aspnetcoreapp/aspnetcoreapp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/shaunchuang/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.10/microsoft.netcore.app.runtime.linux-x64.8.0.10.nupkg.sha512",
+    "/Users/shaunchuang/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.10/microsoft.aspnetcore.app.runtime.linux-x64.8.0.10.nupkg.sha512",
+    "/Users/shaunchuang/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.10/microsoft.netcore.app.host.linux-x64.8.0.10.nupkg.sha512"
+  ],
   "logs": []
 }
